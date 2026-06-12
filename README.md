@@ -1,13 +1,9 @@
-# Laboratorio 4 - INF245
+# Laboratorio 4: Arquitectura y Organización de Computadores
 
-Arquitectura y Organizacion de Computadores
-
-## Integrantes
-
-| Integrante | Rol | Paralelo |
-| --- | --- | --- |
-| Héctor Chanampe | 202304613-2 | 200 |
-| Isidora Villegas | 202203026-7 | 200 |
+## 1. Integrantes
+* **Nombre:** Isidora Villegas | **Rol:** 202203026-7
+* **Nombre:** Héctor Chanampe | **Rol:** 202304613-2
+* **Paralelo:** 201
 
 ## Contexto
 
