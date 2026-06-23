@@ -6,6 +6,7 @@ msg_n:          .asciz "Ingrese intensidad n: "
 msg_out_a:      .asciz "Intensidad ["
 msg_out_b:      .asciz "] -> Pulso de estabilizacion: "
 msg_error:      .asciz "Entrada invalida. Intente nuevamente.\n"
+msg_error_n:    .asciz "Intensidad invalida. Use un valor entre 0 y 25 para evitar overflow.\n"
 newline:        .asciz "\n"
 
 .text
@@ -38,7 +39,11 @@ loop_intensidades:
     li a7, 5
     ecall
 
-    blt a0, zero, error
+    blt a0, zero, error_n
+
+    li t0, 26
+    bge a0, t0, error_n    # Evita overflow en enteros de 32 bits con signo
+
     mv s2, a0              # s2 = n original
 
     jal ra, pell
@@ -106,6 +111,12 @@ pell_base_cero:
 pell_base_uno:
     li a0, 1
     jr ra
+
+error_n:
+    la a0, msg_error_n
+    li a7, 4
+    ecall
+    j loop_intensidades
 
 error:
     la a0, msg_error

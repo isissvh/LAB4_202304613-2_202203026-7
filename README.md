@@ -29,6 +29,9 @@ La salida tiene el formato solicitado:
 Intensidad [n] -> Pulso de estabilizacion: [Valor P_n]
 ```
 
+Supuesto:
+Se limita la intensidad n al rango 0 <= n <= 25, ya que desde P26 el resultado supera el máximo entero positivo representable en 32 bits con signo. Por esta razón, el programa rechaza n >= 26 para evitar overflow y resultados negativos incorrectos en RARS.
+
 ## Desafio 2: Desencriptacion del Sello de Sombras
 
 El archivo `subsistema2.asm` recibe primero un entero `m`, que indica cuantas llaves se evaluaran. El programa valida `1 <= m <= 20`, lee las llaves como enteros de 32 bits y las almacena en un arreglo de palabras reservado en memoria con `.space 80`.
